@@ -148,3 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
   moveSpeed: 10
+  jumpForce: 350
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8

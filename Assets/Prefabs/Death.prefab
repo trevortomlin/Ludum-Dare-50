@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 596041245658947717}
   - component: {fileID: 596041245658947718}
-  - component: {fileID: 596041245658947719}
   - component: {fileID: 596041245658947712}
+  - component: {fileID: 3131217239462558571}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -86,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &596041245658947719
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596041245658947713}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0050649643, y: -0.6421877}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 8.687675, y: 6.524358}
-  m_EdgeRadius: 0
 --- !u!114 &596041245658947712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +102,19 @@ MonoBehaviour:
   speed: 3
   speedIncrease: 1
   speedTimer: 10
+--- !u!70 &3131217239462558571
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596041245658947713}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11992781, y: -0.6363557}
+  m_Size: {x: 10.2905855, y: 6.4076457}
+  m_Direction: 1
