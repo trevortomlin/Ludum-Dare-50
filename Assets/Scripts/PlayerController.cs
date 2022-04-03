@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     private bool grounded = false;
 
+    private float boundXleft = -13.4f;
+    private float boundXright = 13.4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,10 @@ public class PlayerController : MonoBehaviour
 
         xInput = Input.GetAxis("Horizontal") * moveSpeed;
 
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, boundXleft, boundXright),
+                                         transform.position.y,
+                                         0);
+
     }
 
     private void FixedUpdate()
@@ -36,8 +43,11 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = velocity;
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.name == "Death(Clone)") { GameManager.Instance.Death(); }
+
         grounded = true;
     }
 

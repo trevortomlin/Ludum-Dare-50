@@ -17,7 +17,18 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI depthText;
 
-    public GameObject Player;
+    public GameObject playerPrefab;
+    public GameObject deathPrefab;
+
+    private Transform playerT;
+
+    private GameObject playerInstance;
+    private GameObject deathInstance;
+
+    private float boundXleft = -13.4f;
+    private float boundXright = 13.4f;
+
+    public GameObject deathPanel;
 
     private void Awake()
     {
@@ -32,8 +43,42 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void Death() {
+
+        playerInstance.GetComponent<PlayerController>().rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        deathInstance.GetComponent<DeathBox>().SetMoving(false);
+
+        deathPanel.SetActive(true);
+    
+    }
+
+    public void Restart()
+    {
+
+        deathPanel.SetActive(false);
+
+        Destroy(playerInstance);
+        Destroy(deathInstance);
+
+        Camera.main.transform.position = new Vector3(0, 0, -10);
+
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (GameObject go in gos)
+        {
+            Destroy(go);
+        }
+
+        numPlatsOnScreen = 0;
+
+        Start();
+
+    }
+
     void Start()
     {
+
+        playerInstance = Instantiate(playerPrefab, new Vector2(0,0), Quaternion.identity);
+        deathInstance = Instantiate(deathPrefab, new Vector2(0, 15), Quaternion.identity);
 
         Camera cam = Camera.main;
 
@@ -41,7 +86,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < platformCount; i++) {
 
-            platPos.x = cam.transform.position.x + Random.Range(-18f, 18f);
+            platPos.x = cam.transform.position.x + Random.Range(boundXleft, boundXright);
             platPos.y = cam.transform.position.y - 9 - Random.Range(0, 18f);
 
             GameObject platformGO = Instantiate(platformPrefab, platPos, Quaternion.identity);
@@ -56,7 +101,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        depthText.text = -1 * (int)Player.transform.position.y + "m";
+        depthText.text = -1 * (int) playerInstance.transform.position.y + "m";
 
         Camera cam = Camera.main;
 
@@ -67,10 +112,11 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < (platformCount - numPlatsOnScreen); i++)
             {
 
-                platPos.x = cam.transform.position.x + Random.Range(-18f, 18f);
-                platPos.y = cam.transform.position.y - 18 - Random.Range(0, 18f);
-                
-                Instantiate(platformPrefab, platPos, Quaternion.identity);
+                platPos.x = cam.transform.position.x + Random.Range(boundXleft, boundXright);
+                platPos.y = cam.transform.position.y - 9 - Random.Range(0, 18f);
+
+                GameObject platformGO = Instantiate(platformPrefab, platPos, Quaternion.identity);
+
                 numPlatsOnScreen++;
 
             }

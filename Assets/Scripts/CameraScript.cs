@@ -5,12 +5,26 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
 
-    public Transform playerT;
+    private Transform playerT;
 
     public Transform underGroundSprite;
 
+    public void Start()
+    {
+        
+        //Debug.Log(playerT.position);
+
+    }
+
     private void LateUpdate()
     {
+        if (playerT == null) {
+
+            playerT = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+            return;
+
+        }
+
         // Move camera down if player is above it
         if (playerT.position.y < transform.position.y) {
 

@@ -28,8 +28,8 @@ public class Platform : MonoBehaviour
 
         transform.position = newPos;*/
 
-        GameManager.Instance.numPlatsOnScreen--;
-        Destroy(gameObject);
+        /*GameManager.Instance.numPlatsOnScreen--;
+        Destroy(gameObject);*/
 
     }
 

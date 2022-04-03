@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DeathBox : MonoBehaviour
 {
+    public Rigidbody2D rb2d;
 
-    public int speed = 1;
+    public int speed = 3;
 
     public int speedIncrease = 1;
 
@@ -13,9 +14,18 @@ public class DeathBox : MonoBehaviour
 
     private float elapsedTime = 0f;
 
+    private bool moving = true;
+
+    void Start()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!moving) { return; }
+
         transform.Translate(Vector2.down * Time.deltaTime * speed);
 
         elapsedTime += Time.deltaTime;
@@ -28,4 +38,11 @@ public class DeathBox : MonoBehaviour
 
 
     }
+
+    public void SetMoving(bool s) {
+
+        moving = s;
+    
+    }
+
 }
