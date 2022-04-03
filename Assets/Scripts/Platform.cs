@@ -16,6 +16,8 @@ public class Platform : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
 
+        Debug.Log("Sprite size: " + sprite.size.ToString("F2"));
+
     }
 
     private void Relocate()

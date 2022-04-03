@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < platformCount; i++) {
 
             platPos.x = cam.transform.position.x + Random.Range(boundXleft, boundXright);
-            platPos.y = cam.transform.position.y - 9 - Random.Range(0, 18f);
+            platPos.y = cam.transform.position.y - 18 - Random.Range(0, 18f);
 
             GameObject platformGO = Instantiate(platformPrefab, platPos, Quaternion.identity);
 
