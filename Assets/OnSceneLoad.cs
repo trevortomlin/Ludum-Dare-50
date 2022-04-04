@@ -8,4 +8,11 @@ public class OnSceneLoad : MonoBehaviour
     {
         AudioManager.Instance.Play("MainMenu");
     }
+
+    public void Stop()
+    {
+
+        AudioManager.Instance.StopAll();
+
+    }
 }

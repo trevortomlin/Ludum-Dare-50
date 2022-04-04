@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public int numPlatsOnScreen = 0;
 
     public TextMeshProUGUI depthText;
+    public TextMeshProUGUI highScoreText;
 
     public GameObject playerPrefab;
     public GameObject deathPrefab;
@@ -41,9 +42,13 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
+        PlayerPrefs.DeleteAll();
+
     }
 
     public void Death() {
+
+        highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
 
         playerInstance.GetComponent<PlayerController>().rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         deathInstance.GetComponent<DeathBox>().SetMoving(false);

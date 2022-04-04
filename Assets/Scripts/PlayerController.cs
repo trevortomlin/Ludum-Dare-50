@@ -89,6 +89,10 @@ public class PlayerController : MonoBehaviour
 
         if (collision.collider.name.Equals("Death(Clone)")) {
 
+            int highScore = Mathf.Max(PlayerPrefs.GetInt("HighScore"), (int) transform.position.y * -1);
+
+            PlayerPrefs.SetInt("HighScore", highScore);
+
             Vector3 particlePos = transform.position;
             particlePos.z = -2;
 
