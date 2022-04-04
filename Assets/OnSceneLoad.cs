@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class OnSceneLoad : MonoBehaviour
 {
-    private void Awake()
+    public string musicName;
+
+    private void Start()
     {
-        AudioManager.Instance.Play("MainMenu");
+        AudioManager.Instance.Play(musicName);
     }
 
     public void Stop()

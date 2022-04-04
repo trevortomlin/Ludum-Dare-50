@@ -2105,6 +2105,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1206127808}
+        m_TargetAssemblyTypeName: OnSceneLoad, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TitleScreen
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1127246870}
         m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
         m_MethodName: LoadLevel
@@ -2115,18 +2127,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1447923294}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: StopAll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: TitleScreen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1127246868
@@ -2180,6 +2180,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level
+--- !u!1 &1206127807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206127809}
+  - component: {fileID: 1206127808}
+  m_Layer: 0
+  m_Name: OnSceneLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1206127808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206127807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed55b2cf6e36f4488d26cc77235c3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: TitleScreen
+--- !u!4 &1206127809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206127807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13919818, y: -26.356623, z: -1220.9137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239937693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2586,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1447923294}
+      - m_Target: {fileID: 2753496344497080237}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: SetMusicVol
         m_Mode: 1
@@ -2739,93 +2784,6 @@ Transform:
   - {fileID: 941921757}
   m_Father: {fileID: 1463717659}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1447923293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1447923295}
-  - component: {fileID: 1447923294}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1447923294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447923293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9979c364973fa9e418ef9b76411b97e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: TitleScreen
-    clip: {fileID: 8300000, guid: 8dd1151dce7490c45a423232f2d0e5de, type: 3}
-    loop: 1
-    type: 0
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: MainMenu
-    clip: {fileID: 8300000, guid: 6a588cdd09d16844d91cfbf0dd393f62, type: 3}
-    loop: 1
-    type: 0
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Jump
-    clip: {fileID: 8300000, guid: 4b805019306a40349afd7e1b29f412ca, type: 3}
-    loop: 0
-    type: 1
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Select
-    clip: {fileID: 8300000, guid: 037bba39e8347d147918e63f0680120a, type: 3}
-    loop: 0
-    type: 1
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: HitGround
-    clip: {fileID: 8300000, guid: 46d9ed1e6bb116748829446df2bc8936, type: 3}
-    loop: 0
-    type: 1
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: Hit_Hurt
-    clip: {fileID: 8300000, guid: a23d04b8dec229740b18bccdd0a52566, type: 3}
-    loop: 0
-    type: 1
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
---- !u!4 &1447923295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447923293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 919.0654, y: 453.9186, z: -0.13441765}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463717655
 GameObject:
@@ -3604,7 +3562,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1447923294}
+      - m_Target: {fileID: 2753496344497080237}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: SetFXVol
         m_Mode: 1
@@ -4049,3 +4007,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138229954}
   m_CullTransparentMesh: 1
+--- !u!4 &2753496344497080236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753496344497080238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 919.0654, y: 453.9186, z: -0.13441765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2753496344497080237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2753496344497080238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9979c364973fa9e418ef9b76411b97e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TitleScreen
+    clip: {fileID: 8300000, guid: 8dd1151dce7490c45a423232f2d0e5de, type: 3}
+    loop: 1
+    type: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 6a588cdd09d16844d91cfbf0dd393f62, type: 3}
+    loop: 1
+    type: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 4b805019306a40349afd7e1b29f412ca, type: 3}
+    loop: 0
+    type: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Select
+    clip: {fileID: 8300000, guid: 037bba39e8347d147918e63f0680120a, type: 3}
+    loop: 0
+    type: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: HitGround
+    clip: {fileID: 8300000, guid: 46d9ed1e6bb116748829446df2bc8936, type: 3}
+    loop: 0
+    type: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hit_Hurt
+    clip: {fileID: 8300000, guid: a23d04b8dec229740b18bccdd0a52566, type: 3}
+    loop: 0
+    type: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+--- !u!1 &2753496344497080238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2753496344497080236}
+  - component: {fileID: 2753496344497080237}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
