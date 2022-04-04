@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
 
         if (Input.GetKeyDown("space") && grounded){
+            AudioManager.Instance.Play("Jump");
             rb2d.AddForce(new Vector2(0, jumpForce));
         }
 
@@ -90,8 +91,12 @@ public class PlayerController : MonoBehaviour
 
             Vector3 particlePos = transform.position;
             particlePos.z = -2;
-            StartCoroutine(cameraShake.Shake(.2f, .4f));
+
+            AudioManager.Instance.Play("Hit_Hurt");
             Instantiate(deathParticle, particlePos, Quaternion.identity);
+
+            StartCoroutine(cameraShake.Shake(.2f, .4f));
+
             GameManager.Instance.Death(); 
         
         }
@@ -106,12 +111,13 @@ public class PlayerController : MonoBehaviour
             if (impactVelocity > 15f) {
 
                 Vector3 particlePos = collision.contacts[0].point;
-                particlePos.z = -2;
+                particlePos.z = -1;
 
-                StartCoroutine(cameraShake.Shake(.15f, .4f));
+                AudioManager.Instance.Play("HitGround");
 
                 Instantiate(groundHitParticle, particlePos, Quaternion.identity);
 
+                StartCoroutine(cameraShake.Shake(.15f, .4f));
 
             }
 

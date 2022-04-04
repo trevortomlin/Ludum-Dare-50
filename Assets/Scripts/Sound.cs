@@ -8,6 +8,17 @@ public class Sound
 
     public AudioClip clip;
 
+    public bool loop;
+
+    public enum Type {
+    
+        MUSIC,
+        FX
+    
+    };
+
+    public Type type;
+
     [Range(0f, 1f)]
     public float volume;
 
@@ -16,4 +27,9 @@ public class Sound
 
     [HideInInspector]
     public AudioSource source;
+
+    public void Awake()
+    {
+        source.loop = loop;
+    }
 }

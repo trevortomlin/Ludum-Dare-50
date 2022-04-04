@@ -6,7 +6,8 @@ public class DeathBox : MonoBehaviour
 {
     public Rigidbody2D rb2d;
 
-    public int speed = 3;
+    public int speed = 5;
+    public int maxSpeed = 15;
 
     public int speedIncrease = 1;
 
@@ -27,6 +28,8 @@ public class DeathBox : MonoBehaviour
         if (!moving) { return; }
 
         transform.Translate(Vector2.down * Time.deltaTime * speed);
+
+        if (speed == maxSpeed) return;
 
         elapsedTime += Time.deltaTime;
         if (elapsedTime > speedTimer)

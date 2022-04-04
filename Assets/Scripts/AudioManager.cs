@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,9 +9,44 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    public AudioClip musicClip;
+    public void SetMusicVol()
+    {
+        float musicSliderVal = GameObject.Find("Music Slider").GetComponent<Slider>().value;
 
-    public bool musicOn = false;
+        //Debug.Log(musicSliderVal);
+
+        foreach (Sound s in sounds)
+        {
+
+            if (s.type == Sound.Type.MUSIC)
+            {
+                //Debug.Log(s.name);
+                s.source.volume = musicSliderVal;
+                //Debug.Log(s.volume);
+
+            }
+
+        }
+    }
+
+    public void SetFXVol()
+    {
+
+        float fxSliderVal = GameObject.Find("FX Slider").GetComponent<Slider>().value;
+        foreach (Sound s in sounds)
+        {
+
+            if (s.type == Sound.Type.FX)
+            {
+
+                s.source.volume = fxSliderVal;
+
+            }
+
+        }
+
+    }
+
 
     private void Awake()
     {
@@ -25,17 +61,6 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        if (musicOn)
-        {
-
-            AudioSource musicAS = gameObject.AddComponent<AudioSource>();
-
-            musicAS.loop = true;
-            musicAS.clip = musicClip;
-            musicAS.Play();
-
-        }
-
         foreach (Sound s in sounds)
         {
 
@@ -46,6 +71,11 @@ public class AudioManager : MonoBehaviour
 
         }
 
+    }
+
+    public void Start()
+    {
+        Play("TitleScreen");
     }
 
     public void Play(string name)
@@ -64,4 +94,13 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    public void StopAll()
+    {
+
+        foreach (Sound s in sounds)
+        {
+            s.source.Stop();
+        }
+
+    }
 }

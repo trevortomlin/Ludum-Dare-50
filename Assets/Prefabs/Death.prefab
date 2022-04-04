@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
-  speed: 3
+  speed: 7
+  maxSpeed: 12
   speedIncrease: 1
-  speedTimer: 10
+  speedTimer: 15
 --- !u!70 &3131217239462558571
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
