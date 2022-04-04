@@ -148,6 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
   moveSpeed: 10
+  fallingParticle: {fileID: 1776318754098934703, guid: 94ea3326423271f41be5c101d83ad7ee, type: 3}
+  groundHitParticle: {fileID: 1107308714869641632, guid: c279650022bb84748b89b9a50ea0576b, type: 3}
+  deathParticle: {fileID: 5694391778290850684, guid: 1be0758004aba654e8d154ea52ada748, type: 3}
   jumpForce: 350
   groundLayer:
     serializedVersion: 2
