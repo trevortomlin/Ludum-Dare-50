@@ -48,10 +48,6 @@ public class PlayerController : MonoBehaviour
                                          transform.position.y,
                                          0);
 
-        //Debug.DrawRay(transform.position, Vector2.down, Color.green);
-
-        //Debug.Log(rb2d.velocity.y);
-
         if (rb2d.velocity.y < -7) {
 
             Vector3 particlePos = transform.position;
@@ -109,8 +105,6 @@ public class PlayerController : MonoBehaviour
         {
 
             float impactVelocity = collision.relativeVelocity.y;
-
-            Debug.Log(impactVelocity);
 
             if (impactVelocity > 15f) {
 
